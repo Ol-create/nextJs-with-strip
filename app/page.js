@@ -1,4 +1,7 @@
-import Image from 'next/image'
+"use client"
+
+import Image from 'next/image';
+import { checkout } from "../checkout"
 
 export default function Home() {
   return (
@@ -37,7 +40,16 @@ export default function Home() {
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
-        </a>
+      </a>
+      <button onClick={() => {
+        checkout({
+          lineItems: [
+            {
+              price: "price_1NzjH7BoPJddmlDr1DUEAxLz",
+            },
+          ],
+        });
+      }}>Buy Product</button>
       
     </main>
   )
